@@ -5,7 +5,7 @@ using namespace std;
 
 int kadane(int* tmp, int * s,int *f, int r)
 {
-    int l_s=0,sum=0,max_sum=0;
+    int l_s=0,sum=0,max_sum=INT_MIN;
     *f=-1;
     int maxSum=INT_MIN;
     for(int i=0;i<r;i++)
@@ -51,7 +51,7 @@ void findMaxSum(int M[][COL])
         for(int j=i;j<COL;j++)
         {
             for(int k=0;k<ROW;k++)
-                tmp[i]+=M[k][j];
+                tmp[k]+=M[k][j];
                 
             int sum=kadane(tmp,&start,&finish,ROW);
             if(maxSum<sum)
@@ -82,4 +82,4 @@ int main()
     findMaxSum(M);  
   
     return 0;  
-}  
+} 
