@@ -1,4 +1,6 @@
-//. Initially the miner is at first column but can be at any row. He can move only (right->,right up /,right down\) that is from a given cell, the miner can move to the cell diagonally up towards the right or right or diagonally down towards the right. Find out maximum amount of gold he can collect.
+//. Initially the miner is at first column but can be at any row.
+//He can move only (right->,right up /,right down\) that is from a given cell, the miner can move to the cell diagonally up towards the right or right or 
+//diagonally down towards the right. Find out maximum amount of gold he can collect.
 
 #include <iostream>
 #include<bits/stdc++.h>
