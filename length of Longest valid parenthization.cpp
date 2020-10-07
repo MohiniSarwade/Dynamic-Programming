@@ -22,6 +22,19 @@ int LP(string s)
     return count;
 }
 
+int LP(string s)
+{
+    int count=0;
+    int n=s.length();
+    vector<int>tab(n+1,0);
+    for(int i=1;i<n;i++)
+    {
+        if(s[i]==')'&& (i-tab[i-1]-1)>=0 && s[i-tab[i-1]-1]=='(')
+            tab[i]=tab[i-1]+2+((i-tab[i-1]-2 >=0)?tab[i-tab[i-1]-2]:0);
+        count=max(count,tab[i]);
+    }
+    return count;
+}
 int main() {
 	//code
 	int t;
