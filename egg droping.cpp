@@ -44,3 +44,36 @@ int main() {
 	}
 	return 0;
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+int tab[105][10005];
+
+int eggBreak(int e,int f)
+{
+    if(e==1||f==0||f==1)
+        return tab[e][f]=f;
+    if(tab[e][f]!=-1)
+        return tab[e][f];
+    int low=1,high=f;
+     int res=INT_MAX;
+    while(low<=high)
+    {
+        int mid=(low+high)/2;
+       
+        int below=((tab[e-1][mid-1]!=-1)?tab[e-1][mid-1]:eggBreak(e-1,mid-1));
+        int above=((tab[e][f-mid]!=-1)?tab[e][f-mid]:eggBreak(e,f-mid));
+        res=min(res,1+max(below, above));
+        if(below<above)
+            low=mid+1;
+        else
+            high=mid-1;
+    }
+    return tab[e][f]=res;
+    
+}
+int Solution::solve(int A, int B) {
+    
+    memset(tab,-1,sizeof(tab));
+    eggBreak(A,B);
+    return tab[A][B];
+        
+}
